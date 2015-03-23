@@ -24,3 +24,6 @@ Usage of this API lets you...
   * Integrate OpenScores API in Games
     * Display scores in your game
     * Leaderboards
+
+## Loads more to come!
+This project has just recently been initiated so join the development and hopefully OpenScores will become a solid API :smile:
