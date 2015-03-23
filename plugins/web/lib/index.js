@@ -18,6 +18,7 @@ exports.register = function(plugin, options, next){
     engines: {jade: require('jade')},
     relativeTo: __dirname,
     path: './views',
+    context: require('./global-context.js'),
     compileOptions: {
       colons: true,
       pretty: true
@@ -54,7 +55,7 @@ internals.onPreResponse = function(request, reply){
     var error = request.response;
     console.log(JSON.stringify(error, null, '\t'));
     var code = error.output.statusCode;
-    var message = (error.output.payload.message ? error.output.payload.message : 'Page not found');
+    var message = (error.output.payload.message ? error.output.payload.message : 'Page not found (default)');
     return reply.view('error', {code: code, message: message});
   }
 

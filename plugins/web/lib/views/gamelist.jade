@@ -1,0 +1,12 @@
+extends layout
+
+block title
+  title #{title} - Listing games
+
+block content
+  ul#games
+    each game in games
+      #game
+        li
+          h1 #{game.gameName}
+          h2 #{game.gameDescription}

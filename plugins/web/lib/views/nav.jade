@@ -12,8 +12,8 @@ block nav
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.navitem(class= page === "home" ? "active" : "")
-            a(href='#') Home
-          li.navitem
-            a(href='#') Games
+            a(href='/') Home
+          li.navitem(class= page === "games" ? "active" : "")
+            a(href='/games') Games
           li.navitem
             a(href='#') Scoreboards

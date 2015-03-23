@@ -81,13 +81,32 @@ body{
 }
 
 /*
-  Active link hovering TODO is it tho?
+  Active link
 */
 .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-  color: #44ff33;
   background-color: #05a;
 }
 
 .navbar-custom .navbar-brand {
   color:#fff;
+}
+
+/*
+
+  GAMES
+
+
+*/
+
+#games{
+  list-style: none;
+}
+
+#game{
+  width: 20%;
+  background-color: #bbb;
+
+  border-width: 0px 0px 4px 0px;
+  border-style: solid;
+  border-color: rgba(32,32,32,0.8);
 }
