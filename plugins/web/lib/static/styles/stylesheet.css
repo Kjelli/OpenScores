@@ -1,0 +1,93 @@
+body{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #222;
+  color: #FFF;
+}
+
+#header{
+  margin: auto;
+  width: 80%;
+  padding: 150px 0 50px 0;
+  background-color: #222;
+  text-align: center;
+}
+#header > h1{
+  font-size: 5em;
+}
+
+#footer{
+  width: 100%;
+  padding: 20px;
+  color: #FFFFFF;
+  text-align: center;
+
+  background-color: #003C76;
+  border-width: 4px 0px 0px 0px;
+  border-style: solid;
+  border-color: #002447;
+}
+
+#container{
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  min-height: 500px;
+
+  background-color: #003C76;
+  border-width: 0px 0px 2px 0px;
+  border-style: solid;
+  border-color: #111;
+
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+#nav{
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+
+  border-width: 0px 0px 4px 0px;
+  border-style: solid;
+  border-color: rgba(32,32,32,0.8);
+}
+
+/*
+  Custom navbar coloring scheme
+*/
+
+.navbar-custom {
+  background-color:#0071de;
+  border-radius: 0;
+  width: 100%;
+  border-width: 0px 0px 0px 0px;
+  margin-bottom: 0;
+}
+/*
+  Inactive link
+*/
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+/*
+  Link hovering
+*/
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #05a;
+}
+
+/*
+  Active link hovering TODO is it tho?
+*/
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+  color: #44ff33;
+  background-color: #05a;
+}
+
+.navbar-custom .navbar-brand {
+  color:#fff;
+}

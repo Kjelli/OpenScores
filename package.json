@@ -1,0 +1,22 @@
+{
+  "name": "OpenScores",
+  "version": "0.0.1",
+  "description": "OpenScores (working name) is an open-source project for a highscore API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^2.6.1",
+    "good": "^5.1.2",
+    "good-console": "^4.1.0",
+    "hapi": "^8.2.0",
+    "jade": "^1.9.2",
+    "joi": "^6.0.6",
+    "mysql": "^2.5.5",
+    "path": "^0.11.14",
+    "request": "^2.53.0"
+  }
+}
