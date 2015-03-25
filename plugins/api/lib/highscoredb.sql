@@ -11,6 +11,9 @@ CREATE TABLE IF NOT EXISTS games(
 );
 
 INSERT INTO games(gameName, gameDescription, gameOwner) VALUES('Tetris With Friends', 'Play Tetris with your friends!', 'Nintendo (TM)');
+INSERT INTO games(gameName, gameDescription, gameOwner) VALUES('Rangy Dribs', 'Throw dribs at the enemy gips!', 'NoUBisoft');
+INSERT INTO games(gameName, gameDescription, gameOwner) VALUES('Skippy Though!', 'This is a complicated game with a description that probably does break the CSS positioning', 'Bad stuff');
+INSERT INTO games(gameName, gameDescription, gameOwner) VALUES('Say what?', 'What a great game this is.. Like really <b>LOL</b>', 'Lol though');
 SELECT * FROM games;
 ALTER TABLE games AUTO_INCREMENT = 1;
 DELETE FROM games WHERE gameId > 0;

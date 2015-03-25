@@ -5,7 +5,6 @@ exports.list = {
   handler: function(request, reply){
     this.api.call('GET', '/api/games', '', function(err, code, payload){
       if(err){
-
         reply(Boom.create(500, 'Something went wrong...'));
         return;
       }

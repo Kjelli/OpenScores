@@ -10,7 +10,6 @@ var internals = {};
 module.exports = internals.Client = function(options){
   this.settings = options;
   this.ticket = null;
-  console.log(JSON.stringify(options,null,'\t'))
 }
 
 // Make API call w/ client token

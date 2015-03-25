@@ -1,3 +1,4 @@
 module.exports = {
-  title: 'OpenScores'
+  title: 'OpenScores',
+  productName: 'OpenScores'
 }

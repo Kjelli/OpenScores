@@ -1,19 +1,19 @@
 block nav
-  nav.navbar.navbar-custom
+  nav.navbar.navbar-custom.navbar-fixed-top
     .container-fluid
       .navbar-header
-        button(type='button',class='navbar-toggle collapsed', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-          span.sr-only
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
+        button(type='button',class='navbar-toggle collapsed', data-toggle='collapse', data-target='#myCollapse')
+          span.glyphicon.glyphicon-menu-hamburger.expand
         a(class='navbar-brand',href='#') Highscores
       
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      #myCollapse.collapse.navbar-collapse
         ul.nav.navbar-nav
           li.navitem(class= page === "home" ? "active" : "")
             a(href='/') Home
           li.navitem(class= page === "games" ? "active" : "")
             a(href='/games') Games
-          li.navitem
-            a(href='#') Scoreboards
+          li.navitem(class= page === "scoreboards" ? "active" : "")
+            a(href='/scoreboards') Scoreboards
+        ul.nav.navbar-nav.navbar-right
+          li.navitem(class= page === 'admin' ? "active" : "")
+            a(href='/admin') Admin

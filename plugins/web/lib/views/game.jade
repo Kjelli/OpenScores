@@ -1,7 +1,10 @@
 extends layout
 
 block title
-  title #{game.gameName}
+  title #{title} #{game.gameName}
+
+block content-title
+  h1 #{game.gameName}
 
 block content
   h1 #{game.gameName}

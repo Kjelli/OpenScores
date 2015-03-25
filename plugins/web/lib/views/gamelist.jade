@@ -3,10 +3,22 @@ extends layout
 block title
   title #{title} - Listing games
 
+block content-title
+  h1 All Games
+
 block content
-  ul#games
+  #games-list-label
+    h3 List of all games (#{games.length})
+  ul#games-list
     each game in games
-      #game
-        li
-          h1 #{game.gameName}
-          h2 #{game.gameDescription}
+      li
+        a(href='/game/#{game.gameId}')
+          div.game-list-item #{game.gameName}
+  #games-thumb-label
+    h3 Expanded view of all games (#{games.length})
+  #games-thumb
+    .row
+      each game in games
+        a(href='/game/#{game.gameId}').col-lg-3.col-md-4.col-xs-6.game-thumb.panel
+          .game-thumb-title.panel-title #{game.gameName}
+          .game-thumb-description.panel-body #{game.gameDescription}
