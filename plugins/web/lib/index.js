@@ -1,21 +1,21 @@
-var Joi = require('joi');
+//var Joi = require('joi');
 var Routes = require('./routes');
 var Api = require('./api');
-var Basic = require('hapi-auth-basic');
+//var Basic = require('hapi-auth-basic');
 
 //Declare internals
 
 var internals = {};
 
-exports.register = function(plugin, options, next){
+exports.register = function(server, options, next){
   var api = new Api(options);
 
-  plugin.bind({
+  server.bind({
     config: options,
     api: api
   });
 
-  plugin.views({
+  server.views({
     engines: {jade: require('jade')},
     relativeTo: __dirname,
     path: './views',
@@ -25,8 +25,8 @@ exports.register = function(plugin, options, next){
       pretty: true
     }
   });
-  plugin.route(Routes.endpoints);
-  plugin.route({
+  server.route(Routes.endpoints);
+  server.route({
     method: 'GET',
     path: '/{path*}',
     config: {
@@ -38,19 +38,19 @@ exports.register = function(plugin, options, next){
     }
   });
 
-  plugin.ext('onPreResponse', internals.onPreResponse);
+  server.ext('onPreResponse', internals.onPreResponse);
 
   return next();
-}
+};
 
 exports.register.attributes = {
   pkg: require('../package.json')
-}
+};
 
 internals.onPreResponse = function(request, reply){
 
   //Redirect error responses to errorpage
-  if(request.response.isBoom){
+  if (request.response.isBoom){
     var error = request.response;
     var code = error.output.statusCode;
     var message = (error.output.payload.message ? error.output.payload.message : 'Page not found (default)');
@@ -59,4 +59,4 @@ internals.onPreResponse = function(request, reply){
 
   // Valid reply
   return reply.continue();
-}
+};

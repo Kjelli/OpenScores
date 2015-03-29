@@ -11,4 +11,4 @@ module.exports = {
       labels: 'api'
     }
   }
-}
+};
