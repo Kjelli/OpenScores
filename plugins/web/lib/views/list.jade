@@ -1,0 +1,19 @@
+mixin simples(object, options)
+  li
+    - var name = object[options.nameKey];
+    - var id = object[options.idKey];
+    a(href=options.href+id)
+      div(class=options.itemClass)
+        p #{name}
+        
+        if object.new
+          span(class='label label-warning '+options.labelClass) new
+          
+  
+mixin list(list)
+  ul(class=list.options.listClass)
+    - for (var i = 0; i < list.objects.length; i++){
+      +simples(list.objects[i], list.options)
+    - }
+
+block list

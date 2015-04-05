@@ -1,0 +1,17 @@
+extends layout
+
+block title
+  title #{title} - Boards
+  
+block content-title
+  h1 Boards
+  
+block content
+    
+  if(boardlist)
+    #boards-list-label
+      h3 List of all scoreboards (#{boardlist.objects.length})
+      include boardlist
+  else
+    #boards-list-label
+      h3 No scoreboards to show

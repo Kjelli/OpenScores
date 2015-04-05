@@ -1,15 +1,15 @@
 exports.home = {
   handler: function(request, reply){
-    reply.view('home', {
+    reply.view('layout_home', {
       page: 'home',
-      message: '\'Predefined message set at plugins\\web\\lib\\routes.js:7\''
+      message: 'Hello Tobzoor'
     });
   }
 }
 
 exports.admin = {
   handler: function(request, reply){
-    reply.view('admin', {
+    reply.view('layout_admin', {
       page: 'admin'
     });
   }

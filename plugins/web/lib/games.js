@@ -1,5 +1,27 @@
 var Joi = require('joi');
+var Moment = require('moment');
+var Boom = require('boom');
+var listify = require('./listify');
 
+var preprocess = function(game){
+  if(Array.isArray(game)){
+    for(var i = 0; i < game.length; i ++){
+      preprocess(game[i]);
+    }
+    return;
+  }
+
+  var t = game.created.split(/[- :TZ]/);
+
+  var created = Moment({y: t[0], M: t[1]-1, d: t[2], h: t[3], m: t[4], s: t[5]});
+  var now = Moment();
+
+  var days = now.diff(created, 'days');
+
+  if(days <3){
+    game.new = true;
+  }
+}
 
 exports.list = {
   handler: function(request, reply){
@@ -11,9 +33,18 @@ exports.list = {
 
       if(code === 200 && payload){
 
-        reply.view('gamelist', {
+        preprocess(payload);
+
+        reply.view('layout_games', {
           page: 'games',
-          games: payload
+          gamelist: listify(payload, {
+            idKey: 'gameId',
+            nameKey: 'gameName',
+            listClass: 'games-list',
+            itemClass: 'games-list-item',
+            labelClass: 'label-game',
+            href: '/games/'
+          })
         });
       }else{
 
@@ -25,19 +56,19 @@ exports.list = {
 
 exports.get = {
   handler: function(request, reply){
-    this.api.call('GET', '/api/games/' + request.params.id, '', function(err, code, payload){
+    var self = this;
+    var boards;
+    var error;
+
+    self.api.call('GET', '/api/games/' + request.params.id, '', function(err, code, payload){
       if(err){
 
         reply(Boom.create(404, 'Game not found...'));
-      } else if(code === 200 && payload){
-
-        reply.view('game', {
+      } else{
+        reply.view('layout_game', {
           page: 'games',
           game: payload
         });
-      } else {
-
-        reply(Boom.create(500, 'Something went wrong...'));
       }
     });
   },

@@ -1,0 +1,23 @@
+extends layout
+
+block title
+  title #{title} - Listing games
+
+block content-title
+  h1 All Games
+
+block content
+  if(gamelist)
+  
+    #games-list-label
+      h3 List of all games (#{gamelist.objects.length})
+    include gamelist
+    
+    #games-thumb-label
+      h3 Expanded view of all games (#{gamelist.objects.length})
+    include gamethumbs
+    
+  else
+    #games-list-label
+      h3 No games to show
+  

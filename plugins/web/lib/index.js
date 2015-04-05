@@ -53,8 +53,8 @@ internals.onPreResponse = function(request, reply){
   if(request.response.isBoom){
     var error = request.response;
     var code = error.output.statusCode;
-    var message = (error.output.payload.message ? error.output.payload.message : 'Page not found (default)');
-    return reply.view('error', {code: code, message: message});
+    var message = (error.message ? error.output.payload.message : 'Page not found (default)');
+    return reply.view('error', {page: 'error', code: code, message: message});
   }
 
   // Valid reply

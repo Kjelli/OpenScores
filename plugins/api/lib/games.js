@@ -1,4 +1,4 @@
-var db = require("./db");
+var db = require("./dbgames");
 var Joi = require('joi');
 var Boom = require('boom');
 
@@ -25,8 +25,12 @@ exports.list = {
 
     db.list(function(err, games){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(JSON.stringify(games));
+      if(err){
+        reply(Boom.create(500, err.message));
+        return;
+      };
+
+      reply(JSON.stringify(games));
     });
   }
 };
