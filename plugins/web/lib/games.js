@@ -1,4 +1,5 @@
 var Joi = require('joi');
+
 var Moment = require('moment');
 var Boom = require('boom');
 var listify = require('./listify');
@@ -32,9 +33,7 @@ exports.list = {
       }
 
       if(code === 200 && payload){
-
         preprocess(payload);
-
         reply.view('layout_games', {
           page: 'games',
           gamelist: listify(payload, {
@@ -47,14 +46,18 @@ exports.list = {
           })
         });
       }else{
-
-        reply(Boom.create(500, 'Something went wrong...'));
+        return reply.view('gamelist', {
+          page: 'games',
+          games: payload
+        });
       }
+    return reply(Boom.create(500, 'Something went wrong...'));
     });
   }
-}
+};
 
 exports.get = {
+<<<<<<< HEAD
   handler: function(request, reply){
     var self = this;
     var boards;
@@ -75,6 +78,29 @@ exports.get = {
   validate: {
     params: {
       id: Joi.number().min(0).required()
+=======
+    handler: function (request, reply) {
+        this.api.call('GET', '/api/games/' + request.params.id, '', function (err, code, payload) {
+            if (err) {
+
+                return reply(Boom.create(404, 'Game not found...'));
+            }
+
+            if (code === 200 && payload) {
+
+                return reply.view('game', {
+                    page: 'games',
+                    game: payload
+                });
+            }
+
+            return reply(Boom.create(500, 'Something went wrong...'));
+        });
+    },
+    validate: {
+        params: {
+            id: Joi.number().min(0).required()
+        }
+>>>>>>> origin/master
     }
-  }
-}
+};

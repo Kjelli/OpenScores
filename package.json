@@ -3,12 +3,24 @@
   "version": "0.0.1",
   "description": "OpenScores (working name) is an open-source project for a highscore API",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kjelli/OpenScores.git"
+  },
+  "keywords": [
+    "Game",
+    "Api",
+    "community",
+    "GameDev",
+    "Game Api"
+  ],
+  "bugs": {
+    "url": "https://github.com/Kjelli/OpenScores/issues"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "boom": "^2.6.1",
     "good": "^5.1.2",
     "good-console": "^4.1.0",
@@ -20,5 +32,28 @@
     "mysql": "^2.5.5",
     "path": "^0.11.14",
     "request": "^2.53.0"
+=======
+    "boom": "2.x.x",
+    "hapi": "8.x.x",
+    "hapi-auth-basic": "2.x.x",
+    "hoek": "2.x.x",
+    "jade": "1.x.x",
+    "joi": "6.x.x",
+    "mysql": "2.x.x",
+    "request": "2.x.x"
+  },
+  "devDependencies": {
+    "code": "1.x.x",
+    "good": "5.x.x",
+    "good-console": "4.x.x",
+    "gulp": "^3.8.11",
+    "gulp-eslint": "^0.7.0",
+    "gulp-jshint": "^1.9.4",
+    "jshint-stylish": "^1.0.1",
+    "lab": "5.x.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> origin/master
   }
 }

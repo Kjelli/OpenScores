@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 var db = require("./dbgames");
+=======
+var db = require('./db');
+>>>>>>> origin/master
 var Joi = require('joi');
 var Boom = require('boom');
 
@@ -7,8 +11,10 @@ exports.post = {
 
     db.post(request.payload, function(err, game){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(game);
+      if (err) {
+          return reply(Boom.create(500, err.message));
+      }
+      return reply(game);
     });
   },
   validate: {
@@ -25,12 +31,19 @@ exports.list = {
 
     db.list(function(err, games){
 
+<<<<<<< HEAD
       if(err){
         reply(Boom.create(500, err.message));
         return;
       };
 
       reply(JSON.stringify(games));
+=======
+        if (err) {
+            return reply(Boom.create(500, err.message));
+        }
+      return reply(JSON.stringify(games));
+>>>>>>> origin/master
     });
   }
 };
@@ -40,8 +53,10 @@ exports.get = {
 
     db.get(request.params.id, function(err, game){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(JSON.stringify(game));
+        if (err) {
+            return reply(Boom.create(500, err.message));
+        }
+      return reply(JSON.stringify(game));
     });
   },
   validate: {
