@@ -19,7 +19,6 @@ exports.list = {
           nameKey: 'boardName',
           listClass: 'boards-list',
           itemClass: 'boards-list-item',
-          labelClass: 'label-board',
           href: '/boards/'
         })
       });

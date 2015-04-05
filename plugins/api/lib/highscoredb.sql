@@ -22,7 +22,6 @@ DELETE FROM games WHERE gameId > 0;
 
 DROP TABLE IF EXISTS games;
 
-
 # TODO
 
 CREATE TABLE IF NOT EXISTS boards(
@@ -38,7 +37,11 @@ CREATE TABLE IF NOT EXISTS boards(
 
 INSERT INTO boards(gameId, boardName, boardDescription) VALUES(1, 'Ladder','Official Ladder for the game');
 
-SELECT * from boards;
+SELECT * FROM boards;
+ALTER TABLE boards AUTO_INCREMENT = 1;
+DELETE FROM boards WHERE boardId > 0;
+
+DROP TABLE boards;
 
 # TODO
 CREATE TABLE IF NOT EXISTS entries(

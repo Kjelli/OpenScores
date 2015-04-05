@@ -8,7 +8,7 @@ exports.post = {
     db.post(request.payload, function(err, game){
 
       if (err) {
-          return reply(Boom.create(500, err.message));
+          return reply(err);
       }
       return reply(game);
     });
@@ -25,16 +25,28 @@ exports.post = {
 exports.list = {
   handler: function(request, reply){
 
-    db.list(function(err, games){
+    var options = {
+      limit: request.query.limit,
+      queries: {
+        gameName: request.query.name
+      }
+    }
+
+    db.list(options, function(err, games){
 
       if(err){
-        reply(Boom.create(500, err.message));
-        return;
+        return reply(err);
       };
 
       reply(JSON.stringify(games));
 
     });
+  },
+  validate: {
+    query: {
+      limit: Joi.number().integer().min(1).max(100).default(10).description('Limit the search results'),
+      name: Joi.string().min(0).max(40).default(undefined).description('Filter on name')
+    }
   }
 };
 
@@ -43,9 +55,9 @@ exports.get = {
 
     db.get(request.params.id, function(err, game){
 
-        if (err) {
-            return reply(Boom.create(500, err.message));
-        }
+      if (err) {
+          return reply(err);
+      }
       return reply(JSON.stringify(game));
     });
   },

@@ -7,8 +7,11 @@ exports.post = {
 
     db.post(request.payload, function(err, board){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(board);
+      if(err){
+        return reply(err);
+      }
+
+      reply(board);
 
     });
   },
@@ -16,6 +19,8 @@ exports.post = {
     payload: {
       //TODO
     }
+  }, app: {
+    isApi: true
   }
 };
 
@@ -25,8 +30,7 @@ exports.list = {
     db.list(function(err, boards){
 
       if(err){
-        reply(Boom.create(500, err.message));
-        return;
+        return reply(err);
       };
 
       reply(JSON.stringify(boards));
@@ -39,8 +43,11 @@ exports.get = {
 
     db.get(request.params.id, function(err, board){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(JSON.stringify(board));
+      if(err){
+        return reply(err);
+      }
+
+      reply(JSON.stringify(board));
     });
   },
   validate: {
@@ -55,8 +62,11 @@ exports.getByGame = {
 
     db.getByGame(request.params.id, function(err, board){
 
-      if(err) reply(Boom.create(500, err.message));
-      else reply(JSON.stringify(board));
+      if(err){
+        return reply(err);
+      }
+
+      reply(JSON.stringify(board));
     });
   },
   validate: {

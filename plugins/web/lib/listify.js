@@ -7,7 +7,6 @@ var listify = function(objects, options){
       nameKey: options.nameKey,
       listClass: options.listClass,
       itemClass: options.itemClass,
-      labelClass: options.labelClass,
       href: options.href
     }
   }

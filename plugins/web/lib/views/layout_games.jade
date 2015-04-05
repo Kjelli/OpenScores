@@ -10,11 +10,11 @@ block content
   if(gamelist)
   
     #games-list-label
-      h3 List of all games (#{gamelist.objects.length})
+      h3 List of games (#{gamelist.objects.length} of #{limit})
     include gamelist
     
     #games-thumb-label
-      h3 Expanded view of all games (#{gamelist.objects.length})
+      h3 Expanded view of games (#{gamelist.objects.length} of #{limit})
     include gamethumbs
     
   else

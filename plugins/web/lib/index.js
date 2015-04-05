@@ -48,7 +48,6 @@ exports.register.attributes = {
 };
 
 internals.onPreResponse = function(request, reply){
-
   //Redirect error responses to errorpage
   if (request.response.isBoom){
     var error = request.response;

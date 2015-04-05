@@ -8,5 +8,8 @@ block content-title
 
 block content
   #game-meta
-    h1 #{game.gameName}
-    h4 #{game.gameDescription}
+    h1.game-meta-name #{game.gameName}
+    h4.game-meta-description #{game.gameDescription}
+    h5.game-meta-timestamp Added #{game.createdPretty}
+      if game.new
+        span(class='label label-warning new-label') new

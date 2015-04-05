@@ -1,13 +1,30 @@
 var pool = require('./db');
 
 
-exports.list = function(next){
+exports.list = function(options, next){
 
   pool.getConnection(function(err, connection){
 
     if(err) return next(err);
 
     var queryString = "SELECT * FROM games";
+
+    var hasQueryParams = false;
+
+    for(var property in options.queries){
+      if(options.queries.hasOwnProperty(property) && options.queries[property] !== undefined){
+        // First valid query-param, add WHERE
+        if(!hasQueryParams){
+          hasQueryParams = true;
+          queryString += " WHERE ";
+        }
+        queryString += (property +" LIKE "+ connection.escape('%'+options.queries[property]+'%'));
+      }
+    }
+
+    queryString += " LIMIT " + (options.limit);
+    console.log(queryString);
+
     connection.query(queryString, function(err, result){
 
       connection.release();

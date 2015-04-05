@@ -5,13 +5,18 @@ exports.list = function(next){
 
   pool.getConnection(function(err, connection){
 
-    if(err) return next(err);
+    if(err){
+      return next(err);
+    }
 
     var queryString = "SELECT * FROM boards";
     connection.query(queryString, function(err, result){
 
       connection.release();
-      if(err) return next(err);
+
+      if(err){
+        return next(err);
+      }
 
       console.log("Listing all boards...");
       return next(null, result);
@@ -24,12 +29,17 @@ exports.get = function(id, next){
 
   pool.getConnection(function(err, connection){
 
-    if(err) return next(err);
+    if(err) {
+      return next(err);
+    }
+
     var queryString = 'SELECT * FROM boards WHERE boardId=' + connection.escape(id);
     connection.query(queryString, function(err, result){
 
       connection.release();
-      if(err) return next(err);
+      if(err){
+        return next(err);
+      }
 
       if(result[0]){
         return next(null, result[0]);
