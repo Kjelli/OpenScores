@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 $(document).ready(function(){
   hoverAnimation('.game-thumb', '#002447', '#002858');
   hoverAnimation('.games-list-item, .boards-list-item', '#002447', '#002858');
-=======
-$(document).ready(function () {
-    hoverAnimation('.game-thumb', '#002447', '#002858');
-    hoverAnimation('.game-list-item', '#002447', '#002858');
->>>>>>> origin/master
 });
 
 var hoverAnimation = function (selector, color1, color2) {

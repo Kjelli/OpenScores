@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 var db = require("./dbgames");
-=======
-var db = require('./db');
->>>>>>> origin/master
 var Joi = require('joi');
 var Boom = require('boom');
 
@@ -31,19 +27,13 @@ exports.list = {
 
     db.list(function(err, games){
 
-<<<<<<< HEAD
       if(err){
         reply(Boom.create(500, err.message));
         return;
       };
 
       reply(JSON.stringify(games));
-=======
-        if (err) {
-            return reply(Boom.create(500, err.message));
-        }
-      return reply(JSON.stringify(games));
->>>>>>> origin/master
+
     });
   }
 };

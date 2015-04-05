@@ -54,7 +54,11 @@ internals.onPreResponse = function(request, reply){
     var error = request.response;
     var code = error.output.statusCode;
     var message = (error.message ? error.output.payload.message : 'Page not found (default)');
-    return reply.view('error', {page: 'error', code: code, message: message});
+    return reply.view('layout_error',{
+      page: 'error',
+      code: code,
+      message: message
+    });
   }
 
   // Valid reply

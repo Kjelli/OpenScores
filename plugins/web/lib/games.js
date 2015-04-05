@@ -31,10 +31,11 @@ exports.list = {
         reply(Boom.create(500, 'Something went wrong...'));
         return;
       }
-
+      console.log(JSON.stringify(payload, null, '\t'));
+      console.log(code);
       if(code === 200 && payload){
         preprocess(payload);
-        reply.view('layout_games', {
+        return reply.view('layout_games', {
           page: 'games',
           gamelist: listify(payload, {
             idKey: 'gameId',
@@ -45,40 +46,14 @@ exports.list = {
             href: '/games/'
           })
         });
-      }else{
-        return reply.view('gamelist', {
-          page: 'games',
-          games: payload
-        });
       }
-    return reply(Boom.create(500, 'Something went wrong...'));
+
+      return reply(Boom.create(500, 'Something went wrong...'));
     });
   }
 };
 
 exports.get = {
-<<<<<<< HEAD
-  handler: function(request, reply){
-    var self = this;
-    var boards;
-    var error;
-
-    self.api.call('GET', '/api/games/' + request.params.id, '', function(err, code, payload){
-      if(err){
-
-        reply(Boom.create(404, 'Game not found...'));
-      } else{
-        reply.view('layout_game', {
-          page: 'games',
-          game: payload
-        });
-      }
-    });
-  },
-  validate: {
-    params: {
-      id: Joi.number().min(0).required()
-=======
     handler: function (request, reply) {
         this.api.call('GET', '/api/games/' + request.params.id, '', function (err, code, payload) {
             if (err) {
@@ -88,7 +63,7 @@ exports.get = {
 
             if (code === 200 && payload) {
 
-                return reply.view('game', {
+                return reply.view('layout_game', {
                     page: 'games',
                     game: payload
                 });
@@ -101,6 +76,5 @@ exports.get = {
         params: {
             id: Joi.number().min(0).required()
         }
->>>>>>> origin/master
     }
 };

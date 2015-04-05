@@ -9,11 +9,8 @@ exports.home = {
 
 exports.admin = {
   handler: function(request, reply){
-<<<<<<< HEAD
     reply.view('layout_admin', {
-=======
-    return reply.view('admin', {
->>>>>>> origin/master
+
       page: 'admin'
     });
   }
