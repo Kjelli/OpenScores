@@ -1,5 +1,7 @@
 # OpenScores
 
+[![Join the chat at https://gitter.im/Kjelli/OpenScores](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Kjelli/OpenScores?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Open source RESTful API for storing custom highscores and boards.
 
 Developed in Node.js using Hapi.
